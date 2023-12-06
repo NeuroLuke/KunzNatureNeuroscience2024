@@ -1,0 +1,423 @@
+%==========================================================================
+% This script recreates the main figures of the paper "Ripple-locked
+% coactivity of stimulus-specific neurons and human associative memory".
+%
+% Lukas Kunz, 2023.
+%==========================================================================
+
+% start
+clear; close all; clc;
+
+% paths
+paths       = [];
+paths.fig   = [fileparts(matlab.desktop.editor.getActiveFilename), filesep];
+paths.main  = strrep(paths.fig, ['Figures', filesep], '');
+addpath(genpath(paths.main));
+
+%% Fig. 1b, left inset
+
+fprintf('\nFig. 1b, left inset\n');
+dt  = load(strcat(paths.fig, 'Fig_1b_leftInset.mat'));
+LK_PlotTrialPeriodDurations_20231005(dt.dt);
+
+%% Fig. 1b, right inset
+
+fprintf('\nFig. 1b, right inset\n');
+dt  = load(strcat(paths.fig, 'Fig_1b_rightInset.mat'));
+LK_PlotTrialPeriodDurations_20231005(dt.dt);
+
+%% Fig. 1d, left
+
+fprintf('\nFig. 1d, left\n');
+dt  = load(strcat(paths.fig, 'Fig_1d_left.mat'));
+LK_PlotMemoryPerformanceHalves_20231004(dt.dt);
+
+%% Fig. 1d, right
+
+fprintf('\nFig. 1d, right\n');
+dt  = load(strcat(paths.fig, 'Fig_1d_right.mat'));
+LK_PlotMemoryPerformanceNormTime_20231004(dt.dt);
+
+%% Fig. 2g
+
+fprintf('\nFig. 2g\n');
+dt  = load(strcat(paths.fig, 'Fig_2g.mat'));
+LK_PlotRippleExample_20231030(dt.dt);
+
+%% Fig. 2h, left
+
+fprintf('\nFig. 2h, left\n');
+dt  = load(strcat(paths.fig, 'Fig_2h_left.mat'));
+LK_PlotRippleERPAcrossChannels_20231030(dt.dt);
+
+%% Fig. 2h, left, inset
+
+fprintf('\nFig. 2h, left inset\n');
+dt  = load(strcat(paths.fig, 'Fig_2h_left_inset.mat'));
+LK_PlotRippleERPAcrossChannels_20231030(dt.dt);
+
+%% Fig. 2h, right
+
+fprintf('\nFig. 2h, right\n');
+dt  = load(strcat(paths.fig, 'Fig_2h_right.mat'));
+LK_PlotRipplePowerSpectrumAcrossChannels_20231030(dt.dt);
+
+%% Fig. 2i
+
+fprintf('\nFig. 2i\n');
+dt  = load(strcat(paths.fig, 'Fig_2i.mat'));
+LK_PlotRipplePhaseLockingAcrossChannels_20231030(dt.dt);
+
+%% Fig. 3a, left
+
+fprintf('\nFig. 3a, left\n');
+dt  = load(strcat(paths.fig, 'Fig_3a_left.mat'));
+LK_PlotRipplePropertyPerPhase_20231030(dt.dt);
+
+%% Fig. 3a, middle
+
+fprintf('\nFig. 3a, middle\n');
+dt  = load(strcat(paths.fig, 'Fig_3a_middle.mat'));
+LK_PlotRipplePropertyPerPhase_20231030(dt.dt);
+
+%% Fig. 3a, right
+
+fprintf('\nFig. 3a, right\n');
+dt  = load(strcat(paths.fig, 'Fig_3a_right.mat'));
+LK_PlotRipplePropertyPerPhase_20231030(dt.dt);
+
+%% Fig. 3b
+
+fprintf('\nFig. 3b\n');
+dt  = load(strcat(paths.fig, 'Fig_3b.mat'));
+LK_PlotRippleCorrelationsWithBeh_20231030(dt.dt);
+
+%% Fig. 3c, ITI
+
+fprintf('\nFig. 3c, ITI\n');
+dt  = load(strcat(paths.fig, 'Fig_3c_ITI.mat'));
+LK_PlotRipplePSTHPerPhaseEnd_20231030(dt.dt);
+
+%% Fig. 3c, Cue
+
+fprintf('\nFig. 3c, Cue\n');
+dt  = load(strcat(paths.fig, 'Fig_3c_Cue.mat'));
+LK_PlotRipplePSTHPerPhaseStart_20231030(dt.dt);
+
+%% Fig. 3c, Retrieval
+
+fprintf('\nFig. 3c, Retrieval\n');
+dt  = load(strcat(paths.fig, 'Fig_3c_Retrieval.mat'));
+LK_PlotRipplePSTHPerPhaseEnd_20231030(dt.dt);
+
+%% Fig. 3c, Feedback
+
+fprintf('\nFig. 3c, Feedback\n');
+dt  = load(strcat(paths.fig, 'Fig_3c_Feedback.mat'));
+LK_PlotRipplePSTHPerPhaseStart_20231030(dt.dt);
+
+%% Fig. 3c, Reencoding
+
+fprintf('\nFig. 3c, Reencoding\n');
+dt  = load(strcat(paths.fig, 'Fig_3c_Reencoding.mat'));
+LK_PlotRipplePSTHPerPhaseEnd_20231030(dt.dt);
+
+%% Fig. 3d
+
+fprintf('\nFig. 3d\n');
+dt  = load(strcat(paths.fig, 'Fig_3d.mat'));
+LK_PlotRippleCorrelationsWithBeh_20231030(dt.dt);
+
+%% Fig. 4a
+
+fprintf('\nFig. 4a\n');
+dt  = load(strcat(paths.fig, 'Fig_4a.mat'));
+LK_PlotCrossCorrelations_20231005(dt.dt);
+
+%% Fig. 4b, left
+
+fprintf('\nFig. 4b, left\n');
+dt  = load(strcat(paths.fig, 'Fig_4b_left.mat'));
+LK_PlotPowSpectrogramDuringHCRipples_20231005(dt.dt);
+
+%% Fig. 4b, right
+
+fprintf('\nFig. 4b, right\n');
+dt  = load(strcat(paths.fig, 'Fig_4b_right.mat'));
+LK_PlotPowSpectrogramDuringHCRipples_20231005(dt.dt);
+
+%% Fig. 4c
+
+fprintf('\nFig. 4c\n');
+dt  = load(strcat(paths.fig, 'Fig_4c.mat'));
+LK_PlotNormalizedPowerDuringHCRipples_20231005(dt.dt);
+
+%% Fig. 4d
+
+fprintf('\nFig. 4d\n');
+dt  = load(strcat(paths.fig, 'Fig_4d.mat'));
+LK_PlotNeuronalActivityDuringRipples_20231005(dt.dt);
+
+%% Fig. 5a, upper left
+
+fprintf('\nFig. 5a, upper left\n');
+dt              = load(strcat(paths.fig, 'Fig_5a_upperLeft.mat'));
+dt.dt.visible   = 'on';
+LK_PlotCueObjTuning_20230923(dt.dt);
+
+%% Fig. 5a, upper right
+
+fprintf('\nFig. 5a, upper right\n');
+dt              = load(strcat(paths.fig, 'Fig_5a_upperRight.mat'));
+dt.dt.visible   = 'on';
+LK_PlotCueObjTuning_20230923(dt.dt);
+
+%% Fig. 5a, lower left
+
+fprintf('\nFig. 5a, lower left\n');
+dt              = load(strcat(paths.fig, 'Fig_5a_lowerLeft.mat'));
+dt.dt.visible   = 'on';
+LK_PlotCueObjTuning_20230923(dt.dt);
+
+%% Fig. 5a, lower right
+
+fprintf('\nFig. 5a, lower right\n');
+dt              = load(strcat(paths.fig, 'Fig_5a_lowerRight.mat'));
+dt.dt.visible   = 'on';
+LK_PlotCueObjTuning_20230923(dt.dt);
+
+%% Fig. 5b
+
+fprintf('\nFig. 5b\n');
+dt  = load(strcat(paths.fig, 'Fig_5b.mat'));
+LK_PlotCellsPerRegion(dt.dt);
+
+%% Fig. 5c
+
+fprintf('\nFig. 5c\n');
+dt  = load(strcat(paths.fig, 'Fig_5c.mat'));
+LK_PlotSigTimeForPrefVSUnprefObjects_20231008(dt.dt);
+
+%% Fig. 5d
+
+fprintf('\nFig. 5d\n');
+dt  = load(strcat(paths.fig, 'Fig_5d.mat'));
+LK_PlotAvFRForPrefAndUnprefObjects_20231008(dt.dt);
+
+%% Fig. 5e
+
+fprintf('\nFig. 5e\n');
+dt  = load(strcat(paths.fig, 'Fig_5e.mat'));
+LK_PlotTemporalStabilityOfCueObjCells_20231008(dt.dt);
+
+%% Fig. 5f
+
+fprintf('\nFig. 5f\n');
+dt  = load(strcat(paths.fig, 'Fig_5f.mat'));
+LK_PlotVennDiagramTwoSamples_20231012(dt.dt);
+
+%% Fig. 6a, upper left
+
+fprintf('\nFig. 6a, upper left\n');
+dt              = load(strcat(paths.fig, 'Fig_6a_upperLeft.mat'));
+dt.dt.visible   = 'on';
+LK_PlotPlaceCell_20220330(dt.dt);
+
+%% Fig. 6a, upper middle left
+
+fprintf('\nFig. 6a, upper middle left\n');
+dt              = load(strcat(paths.fig, 'Fig_6a_upperMiddleLeft.mat'));
+dt.dt.visible   = 'on';
+LK_PlotPlaceCell_20220330(dt.dt);
+
+%% Fig. 6a, upper middle right
+
+fprintf('\nFig. 6a, upper middle right\n');
+dt              = load(strcat(paths.fig, 'Fig_6a_upperMiddleRight.mat'));
+dt.dt.visible   = 'on';
+LK_PlotPlaceCell_20220330(dt.dt);
+
+%% Fig. 6a, upper right
+
+fprintf('\nFig. 6a, upper right\n');
+dt              = load(strcat(paths.fig, 'Fig_6a_upperRight.mat'));
+dt.dt.visible   = 'on';
+LK_PlotPlaceCell_20220330(dt.dt);
+
+%% Fig. 6a, lower left
+
+fprintf('\nFig. 6a, lower left\n');
+dt              = load(strcat(paths.fig, 'Fig_6a_lowerLeft.mat'));
+dt.dt.visible   = 'on';
+LK_PlotPlaceCell_20220330(dt.dt);
+
+%% Fig. 6a, lower middle left
+
+fprintf('\nFig. 6a, lower middle left\n');
+dt              = load(strcat(paths.fig, 'Fig_6a_lowerMiddleLeft.mat'));
+dt.dt.visible   = 'on';
+LK_PlotPlaceCell_20220330(dt.dt);
+
+%% Fig. 6a, lower middle right
+
+fprintf('\nFig. 6a, lower middle right\n');
+dt              = load(strcat(paths.fig, 'Fig_6a_lowerMiddleRight.mat'));
+dt.dt.visible   = 'on';
+LK_PlotPlaceCell_20220330(dt.dt);
+
+%% Fig. 6a, lower right
+
+fprintf('\nFig. 6a, lower right\n');
+dt              = load(strcat(paths.fig, 'Fig_6a_lowerRight.mat'));
+dt.dt.visible   = 'on';
+LK_PlotPlaceCell_20220330(dt.dt);
+
+%% Fig. 6b
+
+fprintf('\nFig. 6b\n');
+dt  = load(strcat(paths.fig, 'Fig_6b.mat'));
+LK_PlotCellsPerRegion(dt.dt);
+
+%% Fig. 6c
+
+fprintf('\nFig. 6c\n');
+dt  = load(strcat(paths.fig, 'Fig_6c.mat'));
+LK_PlotOverlayOfPlaceFields_20231012(dt.dt);
+
+%% Fig. 6d
+
+fprintf('\nFig. 6d\n');
+dt  = load(strcat(paths.fig, 'Fig_6d.mat'));
+LK_HistogramFigure_20220321(dt.dt);
+
+%% Fig. 6e
+
+fprintf('\nFig. 6e\n');
+dt  = load(strcat(paths.fig, 'Fig_6e.mat'));
+LK_HistogramFigure_20220321(dt.dt);
+
+%% Fig. 6f
+
+fprintf('\nFig. 6f\n');
+dt  = load(strcat(paths.fig, 'Fig_6f.mat'));
+LK_PlotNumObjInsidePF_20231013(dt.dt);
+
+%% Fig. 6g
+
+fprintf('\nFig. 6g\n');
+dt  = load(strcat(paths.fig, 'Fig_6g.mat'));
+LK_PlotFiringRateInOutPlaceField_20231012(dt.dt);
+
+%% Fig. 6h
+
+fprintf('\nFig. 6h\n');
+dt  = load(strcat(paths.fig, 'Fig_6h.mat'));
+LK_HistogramFigure_20220321(dt.dt);
+
+%% Fig. 7c, left
+
+fprintf('\nFig. 7c, left\n');
+dt  = load(strcat(paths.fig, 'Fig_7c_left.mat'));
+LK_PlotCoactivity_20231015(dt.dt);
+
+%% Fig. 7c, middle
+
+fprintf('\nFig. 7c, middle\n');
+dt  = load(strcat(paths.fig, 'Fig_7c_middle.mat'));
+LK_PlotCoactivity_20231015(dt.dt);
+
+%% Fig. 7c, right
+
+fprintf('\nFig. 7c, right\n');
+dt  = load(strcat(paths.fig, 'Fig_7c_right.mat'));
+LK_PlotCoactivity_20231015(dt.dt);
+
+%% Fig. 7d, left
+
+fprintf('\nFig. 7d, left\n');
+dt  = load(strcat(paths.fig, 'Fig_7d_left.mat'));
+LK_PlotCoactivity_20231015(dt.dt);
+
+%% Fig. 7d, middle
+
+fprintf('\nFig. 7c, left\n');
+dt  = load(strcat(paths.fig, 'Fig_7d_middle.mat'));
+LK_PlotCoactivity_20231015(dt.dt);
+
+%% Fig. 7d, right
+
+% data
+dt  = load(strcat(paths.fig, 'Fig_7d_right.mat'));
+LK_PlotCoactivity_20231015(dt.dt);
+
+%% Fig. 7e, left
+
+% data
+dt  = load(strcat(paths.fig, 'Fig_7e_left.mat'));
+LK_PlotCoactivity_20231015(dt.dt);
+
+%% Fig. 7e, middle
+
+% data
+dt  = load(strcat(paths.fig, 'Fig_7e_middle.mat'));
+LK_PlotCoactivity_20231015(dt.dt);
+
+%% Fig. 7e, right
+
+% data
+dt  = load(strcat(paths.fig, 'Fig_7e_right.mat'));
+LK_PlotCoactivity_20231015(dt.dt);
+
+%% Fig. 7f, left
+
+% data
+dt  = load(strcat(paths.fig, 'Fig_7f_left.mat'));
+LK_PlotCoactivity_20231015(dt.dt);
+
+%% Fig. 7f, middle
+
+% data
+dt  = load(strcat(paths.fig, 'Fig_7f_middle.mat'));
+LK_PlotCoactivity_20231015(dt.dt);
+
+%% Fig. 7f, right
+
+% data
+dt  = load(strcat(paths.fig, 'Fig_7f_right.mat'));
+LK_PlotCoactivity_20231015(dt.dt);
+
+%% Fig. 7g, left
+
+% data
+dt  = load(strcat(paths.fig, 'Fig_7g_left.mat'));
+LK_PlotCoactivity_20231015(dt.dt);
+
+%% Fig. 7g, middle
+
+% data
+dt  = load(strcat(paths.fig, 'Fig_7g_middle.mat'));
+LK_PlotCoactivity_20231015(dt.dt);
+
+%% Fig. 7g, right
+
+% data
+dt  = load(strcat(paths.fig, 'Fig_7g_right.mat'));
+LK_PlotCoactivity_20231015(dt.dt);
+
+%% Fig. 7h, left
+
+% data
+dt  = load(strcat(paths.fig, 'Fig_7h_left.mat'));
+LK_PlotCoactivity_20231015(dt.dt);
+
+%% Fig. 7h, middle
+
+% data
+dt  = load(strcat(paths.fig, 'Fig_7h_middle.mat'));
+LK_PlotCoactivity_20231015(dt.dt);
+
+%% Fig. 7h, right
+
+% data
+dt  = load(strcat(paths.fig, 'Fig_7h_right.mat'));
+LK_PlotCoactivity_20231015(dt.dt);
