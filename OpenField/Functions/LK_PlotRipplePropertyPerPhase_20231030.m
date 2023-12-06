@@ -5,7 +5,7 @@ function f = LK_PlotRipplePropertyPerPhase_20231030(dt)
 %
 % Lukas Kunz, 2023
 
-% create figure
+%% create figure
 f = figure('units', 'centimeters', 'position', [2, 2, 5, 6]);
 axes('units', 'centimeters', 'position', [2.4, 1.4, 2, 3.5]);
 hold on;
@@ -51,3 +51,25 @@ end
 xl = xlabel(dt.myXLabel);
 tl = title(dt.myTitle, 'units', 'normalized', 'position', [0.5, 1.025]);
 set([gca, xl, tl], 'fontunits', 'centimeters', 'fontsize', 0.4, 'fontweight', 'normal');
+
+% broken axes and zero origin
+origAx = get(gca);
+if min(origAx.XLim) > 0 && ~ismember(dt.group, {'chanRippleRatePerPhase', 'chanFracArtifactsPerPhase', 'chanFracIEDsPerPhase'})
+
+    % hide y-axis of original figure
+    set(gca, 'ycolor', 'none');
+
+    % add helper axis to make it appear as broken axis with zero origin
+    axes('units', 'centimeters', 'position', [1.6, 1.4, 0.8, 3.5], 'color', 'none');
+    text(mean([0, min(origAx.XLim)]), max(origAx.YLim), '//', ...
+        'HorizontalAlignment', 'center', 'VerticalAlignment', 'middle', ...
+        'fontunits', 'centimeters', 'fontsize', 0.4, 'BackgroundColor', [1, 1, 1], 'margin', 0.1);
+    set(gca, ...
+        'xlim', [0, min(origAx.XLim)], 'xtick', 0, ...
+        'ylim', origAx.YLim, 'ytick', origAx.YTick, 'yticklabel', dt.beh.trialPhases, 'ydir', 'reverse', ...
+        'tickdir', 'out', 'ticklength', [0.02, 0.02], ...
+        'fontunits', 'centimeters', 'fontsize', 0.4, 'fontweight', 'normal');
+    if ~ismember(dt.group, {'chanRippleRatePerPhase', 'chanFracArtifactsPerPhase', 'chanFracIEDsPerPhase'})
+        set(gca, 'yticklabel', '');
+    end
+end
